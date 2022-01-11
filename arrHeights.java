@@ -14,11 +14,11 @@ class arrHeights {
     
     while(A != null){
       if(A[i + 1] < A[i]){
-        anArray.append(i);
+        anArray.add(i);
         return rows = 1;
       }
       else{
-        anArray2.append(i);
+        anArray2.add(i);
         return rows = 2;
       }
     }
