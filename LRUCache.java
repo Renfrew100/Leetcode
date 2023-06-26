@@ -53,13 +53,8 @@ class LRUCache {
     }
  */
     public int get(int key) {
-        Node node = cache.get(key);
-        if(node == null){
-            return -1;
-        }
-
-        this.moveToHead(node);
-        return node.value;
+        int k = key;
+        return k;
     }
     
     public void put(int key, int value) {
