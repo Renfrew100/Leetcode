@@ -22,13 +22,16 @@ class Solution {
 } */
 
 public class findKthLargest{
-    final PriorityQueue<Integer> pq = new PriorityQueue<>();
-        for(int val : nums) {
-            pq.offer(val);
-
-            if(pq.size() > k) {
-                pq.poll();
+    public int findKthLargest(int[] nums, int k){
+        for(int i = 0; i < nums.length; i++){
+            for(int j = i + 1; j < nums.length; j++){
+                if(nums[i] < nums[j]){
+                    int temp = nums[i];
+                    nums[i] = nums[j];
+                    nums[j] = temp;
+                }
             }
         }
-        return pq.peek();
+    return nums[k-1];
 }
+}  

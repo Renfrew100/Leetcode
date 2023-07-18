@@ -27,4 +27,4 @@ class SymmetricTree {
             && isMirror(p.right,q.left)
             && isMirror(p.left,q.right);
     }
-}
+} 

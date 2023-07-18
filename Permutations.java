@@ -1,26 +1,31 @@
 import java.util.*;
 
 class Permutations {
-    public List<List<Integer>> permute(int[] nums) {   
-        int n;
-        int r;
-        int form;
-        int fact;
-        int index;
+    private List<List<Integer>> ans = new ArrayList<>();
+    private List<Integer> t = new ArrayList<>();
+    private boolean[] vis;
+    private int[] nums;
 
-      fact = (n)/(n-r);
-      form = (n*fact)/((n-r)*fact);
+    public List<List<Integer>> permute(int[] nums) {
+        this.nums = nums;
+        vis = new boolean[nums.length];
+        dfs(0);
+        return ans;
+    }
 
-      while(nums.length > 0){
-        if(nums.length == 1)
-            //nums.remove(nums.length()-1);
-
-            list.indexOf("C");
-
-            list.set(list.indexOf(nums[0][1]));
-            list.set(index, nums[0][0]);
-
-            list.set(list.indexOf(nums[0][0], nums[0][1]));
+    private void dfs(int i) {
+        if (i == nums.length) {
+            ans.add(new ArrayList<>(t));
+            return;
+        }
+        for (int j = 0; j < nums.length; ++j) {
+            if (!vis[j]) {
+                vis[j] = true;
+                t.add(nums[j]);
+                dfs(i + 1);
+                t.remove(t.size() - 1);
+                vis[j] = false;
+            }
         }
     }
-} 
+}
