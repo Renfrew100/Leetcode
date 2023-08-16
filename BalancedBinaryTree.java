@@ -13,21 +13,21 @@
  *     }
  * }
  */
+
 class Solution {
-    public boolean isBalanced(TreeNode root) {
-            
-            // **** base case ****
-            if (root == null)
-                return true;
-    
-            // **** check if left and right subtrees are balanced ****
-            if (Math.abs(height(root.left) - height(root.right)) <= 1 &&
-                isBalanced(root.left) &&
-                isBalanced(root.right))
-                return true;
-    
-            // **** tree is not balanced ****
-            return false;
-            
+ public boolean isBalanced(TreeNode root) {
+        return height(root) >= 0;
+    }
+
+    private int height(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int l = height(root.left);
+        int r = height(root.right);
+        if (l == -1 || r == -1 || Math.abs(l - r) > 1) {
+            return -1;
+        }
+        return 1 + Math.max(l, r);
     }
 }

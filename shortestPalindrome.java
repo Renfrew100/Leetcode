@@ -7,7 +7,12 @@ class Solution {
             if(s.charAt(i)==s.charAt(j)){
                 i++;
             }
-            j--;
+            else if(s.charAt(i) != s.charAt(j)){
+                i--;
+            }
+            else{
+                j--;
+            }
         }
     
         if(i==s.length())
