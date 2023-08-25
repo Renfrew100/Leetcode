@@ -1,10 +1,14 @@
 class Solution {
-    public boolean isPalindrome(String s) {
-        String str = s.match(/[A-Za-z0-9]/g);
-            if(str == null){
-                return true;
-            }else{
-                return false;
+    public boolean isPalindrome(int x) {
+        if (x < 0) {
+            return false;
         }
+        int reversed = 0;
+        int original = x;
+        while (x != 0) {
+            reversed = reversed * 10 + x % 10;
+            x /= 10;
+        }
+        return reversed == original;
     }
-}
+    }
